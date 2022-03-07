@@ -24,7 +24,7 @@ public class OminiPay {
         intent.putExtra("password",password);
         intent.putExtra("key",key);
         intent.putExtra("details",details);
-        ((Activity)context).startActivityForResult(intent,500);
+        ((Activity)context).startActivityForResult(intent,600);
     }
 
 }
