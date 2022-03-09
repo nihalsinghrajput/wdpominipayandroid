@@ -333,5 +333,8 @@ public class Payment extends AppCompatActivity {
         return new String(hexDigits);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

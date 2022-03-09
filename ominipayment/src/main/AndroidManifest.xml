@@ -9,7 +9,8 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".CancelSubscription"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Subscription"
             android:exported="true"
