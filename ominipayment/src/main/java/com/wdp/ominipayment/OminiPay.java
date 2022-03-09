@@ -27,4 +27,15 @@ public class OminiPay {
         ((Activity)context).startActivityForResult(intent,600);
     }
 
+    public static void CancelSubscription(Context context, String username, String password, String key, String details)
+    {
+        Intent intent = new Intent(context,CancelSubscription.class);
+        intent.putExtra("username",username);
+        intent.putExtra("password",password);
+        intent.putExtra("key",key);
+        intent.putExtra("details",details);
+        ((Activity)context).startActivityForResult(intent,700);
+    }
+
+
 }
