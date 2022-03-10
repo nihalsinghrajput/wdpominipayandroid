@@ -39,7 +39,9 @@ Step 3-
 
 	 OminiPay.PaymentRequest(MainActivity.this,username,password,key,params);
 	
-	params format -
+	Create a param json and convert into String , 
+	
+	params format - (put params object into String always)
 	
                 String params =
                         "{\"name\":\"Raj\",\n" +
