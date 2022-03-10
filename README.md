@@ -3,13 +3,15 @@ omini payment gateway
 
 Step 1 -
 add maven in below files 
+
 1. build.gradle(Project:DemoProjectName)
 2. settings.gradle(Project setting)
 
-allprojects {
+allprojects 
+{
 		repositories {
-			
-			maven { 
+			maven 
+			{ 
 			url 'https://jitpack.io'
 			}
 		}
@@ -19,7 +21,8 @@ allprojects {
   
   Step 2- add dependency
 
-  	dependencies {
+  	dependencies 
+	{
 	        implementation 'com.github.nihalsinghrajput:wdpominipayandroid:ominiP1.6'
 	}
 	
@@ -33,6 +36,7 @@ Step 3-
 
 
 *for Payment use :
+
 	 OminiPay.PaymentRequest(MainActivity.this,username,password,key,params);
 	
 	params format -
@@ -72,6 +76,7 @@ Step 3-
 	
 
 *for Cancel Subscription - 
+
 	OminiPay.CancelSubscription(MainActivity.this,username,password,key,user_id);
 	user_id = "2"
 	
