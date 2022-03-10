@@ -13,6 +13,6 @@ allprojects {
   
   
   
-  dependencies {
-	        implementation 'com.github.nihalsinghrajput:wdpominipayandroid:Tag'
+  	dependencies {
+	        implementation 'com.github.nihalsinghrajput:wdpominipayandroid:ominiP1.6'
 	}
