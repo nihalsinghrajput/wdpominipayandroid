@@ -95,10 +95,34 @@ Step 3-
 	 String params = jsonObject.toString();
 	 
 	  OminiPay.Subscription(MainActivity.this,username,password,key,params);
+	  
+//get Response in OnActivityResult (requestcode == 600):
+
+@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+         if(requestCode == 600) {
+            String strValue = data.getStringExtra("payment_status");
+            txtStatus.setText(strValue);
+        }
+    }
 	
 
 *for Cancel Subscription - 
 
 	OminiPay.CancelSubscription(MainActivity.this,username,password,key,user_id);
 	user_id = "2"
+	
+//get Response in OnActivityResult (requestcode == 700):
+
+@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+         if(requestCode == 700) {
+            String strValue = data.getStringExtra("cancel_status");
+            txtStatus.setText(strValue);
+        }
+    }
 	
