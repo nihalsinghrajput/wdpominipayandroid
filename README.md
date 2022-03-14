@@ -57,6 +57,21 @@ Step 3-
 	 
 	 
 	 
+//get Response in OnActivityResult (requestcode == 500):
+
+@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+        if(requestCode == 500) {
+            String strValue = data.getStringExtra("payment_status");
+            txtStatus.setText(strValue);
+        }
+    }
+	 
+	 
+	 
+	 
 *for subscription - 
 	
 	 JSONObject jsonObject = new JSONObject();
