@@ -59,23 +59,27 @@ Step 3-
 	 
 *for subscription - 
 	
-	OminiPay.Subscription(MainActivity.this,username,password,key,params_subs);
-	
-	params format -
-	String params_subs =
-                        "{          \"name\":\"Raj\",\n" +
-                                "            \"email\":\"raj@mailiinator.com\",\n" +
-                                "            \"interval\":\"1\",\n" +
-                                "            \"interval_type\":\"3\",\n" +
-                                "            \"interval_count\":\"\",\n" +
-                                "            \"amount\":10.00,\n" +
-                                "            \"currency\":\"SAR\",\n" +
-                                "            \"order_id\":420,\n" +
-                                "            \"card_number\":\"5105105105105100\",\n" +
-                                "            \"exp_month\":\"12\",\n" +
-                                "            \"exp_year\":\"23\",\n" +
-                                "            \"cvv\":\"999\"\n" +
-                                "    }";
+	 JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("name","Raj");
+                    jsonObject.put("email","raj@mailinator.com");
+                    jsonObject.put("interval","1");
+                    jsonObject.put("interval_type","3");
+                    jsonObject.put("interval_count","");
+                    jsonObject.put("amount","10");
+                    jsonObject.put("currency","SAR");
+                    jsonObject.put("order_id","420");
+                    jsonObject.put("card_number","5105105105105100");
+                    jsonObject.put("exp_month","12");
+                    jsonObject.put("exp_year","23");
+                    jsonObject.put("cvv","999");
+		   
+		    
+		    
+//Convert Json into String and pass into Payment Api as String-
+
+	 String params = jsonObject.toString();
+	 
+	  OminiPay.Subscription(MainActivity.this,username,password,key,params);
 	
 
 *for Cancel Subscription - 
