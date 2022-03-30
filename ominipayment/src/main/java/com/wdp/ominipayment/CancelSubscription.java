@@ -32,6 +32,7 @@ public class CancelSubscription extends AppCompatActivity {
 
     WebView webView;
     RelativeLayout layoutProgress;
+  
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
