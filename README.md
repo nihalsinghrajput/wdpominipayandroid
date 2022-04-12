@@ -57,7 +57,12 @@ Step 3-
 	 
 	 
 	 
-//get Response in OnActivityResult (requestcode == 500):
+//get Response in OnActivityResult
+if(data !=null && requestcode == 500)
+{
+
+}
+
 
 @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -102,7 +107,7 @@ Step 3-
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         
-         if(requestCode == 600) {
+         if(data != null && requestCode == 600) {
             String strValue = data.getStringExtra("payment_status");
             txtStatus.setText(strValue);
         }
@@ -120,7 +125,7 @@ Step 3-
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         
-         if(requestCode == 700) {
+         if(data != null && requestCode == 700) {
             String strValue = data.getStringExtra("cancel_status");
             txtStatus.setText(strValue);
         }
