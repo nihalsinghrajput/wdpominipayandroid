@@ -141,6 +141,7 @@ if(data !=null && requestcode == 500)
 		
 		
 //get Response in OnActivityResult (requestcode == 800):
+
  if(data != null && requestCode == 800) {
             String strValue = data.getStringExtra("payment_status");
             txtStatus.setText(strValue);
