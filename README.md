@@ -130,4 +130,20 @@ if(data !=null && requestcode == 500)
             txtStatus.setText(strValue);
         }
     }
+    
+    
+    
+    *for Payment Checkout
+    
+     OminiPay.Checkout(this,username,password,key,
+                "customer_name",
+                "customer_email","Price","currency","remark");
+		
+		
+//get Response in OnActivityResult (requestcode == 800):
+ if(data != null && requestCode == 800) {
+            String strValue = data.getStringExtra("payment_status");
+            txtStatus.setText(strValue);
+        }
+
 	
