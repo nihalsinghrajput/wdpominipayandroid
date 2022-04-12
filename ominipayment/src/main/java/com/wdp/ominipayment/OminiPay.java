@@ -45,7 +45,7 @@ public class OminiPay {
     {
 
 
-        Intent intent = new Intent(context,CancelSubscription.class);
+        Intent intent = new Intent(context,CheckoutActivity.class);
         intent.putExtra("username",username);
         intent.putExtra("password",password);
         intent.putExtra("key",key);
