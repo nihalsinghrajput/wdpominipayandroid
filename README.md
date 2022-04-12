@@ -33,6 +33,13 @@ Step 3-
         String username = "psp_test.sgkvcacb.c2drdmNhY2I2YTc3MA==";
         String password = "b3pFSnVJb3V3SW5QTnFneVRFSy9wQT09";
         String key = "a134f83650694bf419fb78b4288c2197";
+	
+	
+	
+	
+	
+	
+	
 
 
 *for Payment use :
@@ -57,7 +64,13 @@ Step 3-
 	 
 	 
 	 
+	 
+	 
+	 
+	 
+	 
 //get Response in OnActivityResult
+
 if(data !=null && requestcode == 500)
 {
 
@@ -73,6 +86,13 @@ if(data !=null && requestcode == 500)
             txtStatus.setText(strValue);
         }
     }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 	 
 	 
@@ -113,6 +133,14 @@ if(data !=null && requestcode == 500)
         }
     }
 	
+	
+	
+	
+	
+	
+	
+	
+	
 
 *for Cancel Subscription - 
 
@@ -130,6 +158,15 @@ if(data !=null && requestcode == 500)
             txtStatus.setText(strValue);
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
