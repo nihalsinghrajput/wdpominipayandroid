@@ -37,13 +37,12 @@ public class Subscription extends AppCompatActivity {
     Cipher cipher = null;
     byte[] text = null;
     String s = null;
-    private static   String AES_IV = "AGNNMLDKYPKEZDNK";
+    private static String AES_IV = "AGNNMLDKYPKEZDNK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscription);
-
 
         webView = (WebView) findViewById(R.id.webView);
         layoutProgress = (RelativeLayout) findViewById(R.id.layoutProgress);
@@ -52,7 +51,6 @@ public class Subscription extends AppCompatActivity {
         String  pass = getIntent().getStringExtra("password");
         String  key_s = getIntent().getStringExtra("key");
         String  details_josn = getIntent().getStringExtra("details");
-
 
         if (TextUtils.isEmpty(uName))
         {
@@ -78,7 +76,6 @@ public class Subscription extends AppCompatActivity {
     }
     class ApiCall extends AsyncTask
     {
-
         String username;
         String password;
         String key;
@@ -93,15 +90,12 @@ public class Subscription extends AppCompatActivity {
             this.details = detail;
         }
 
-
         @Override
         protected Object doInBackground(Object[] objects) {
-
             String name = "";
             String email = "";
             String amount = "";
             String currency = "";
-
             String number = "";
             String month = "";
             String year = "";
@@ -115,29 +109,23 @@ public class Subscription extends AppCompatActivity {
             JSONObject js;
             {
                 try {
-
                     js = new JSONObject(details);
                     name = quotes + js.getString("name") +quotes;
                     email = quotes + js.getString("email") +quotes;
                     amount = quotes + js.getString("amount") +quotes;
                     currency = quotes + js.getString("currency") +quotes;
-
                     number = quotes + js.getString("card_number") +quotes;
                     month = quotes + js.getString("exp_month") +quotes;
                     year = quotes + js.getString("exp_year") +quotes;
                     cvv = quotes + js.getString("cvv") +quotes;
-
                     interval = quotes + js.getString("interval") +quotes;
                     interval_type = quotes + js.getString("interval_type") +quotes;
                     interval_count = quotes + js.getString("interval_count") +quotes;
-
                     cardType = quotes + "C" +quotes;
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-
 
             String json = "{\n" +
                     "\"customer\":{\n" +
@@ -166,14 +154,10 @@ public class Subscription extends AppCompatActivity {
                     "}\n" +
                     "}";
 
-
             String url = "https://psp.digitalworld.com.sa/api/v1/test/payments/subscription";
-
-
             String encryptedData = encryptAES(key,json);
 
             try {
-
                 URL urlObj = new URL(url);
                 HttpURLConnection httpCon = (HttpURLConnection) urlObj.openConnection();
 
@@ -196,7 +180,6 @@ public class Subscription extends AppCompatActivity {
                 responseCode = httpCon.getResponseCode();
                 String s = httpCon.getResponseMessage();
 
-
                 BufferedReader br = new BufferedReader(new InputStreamReader(httpCon.getInputStream()));
                 StringBuilder sb = new StringBuilder();
                 String line;
@@ -210,7 +193,6 @@ public class Subscription extends AppCompatActivity {
                     JSONObject apiResponseObject = jsonObject.getJSONObject("apiResponse");
                     payment_url = apiResponseObject.getString("verifyUrl");
 
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -218,8 +200,6 @@ public class Subscription extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
             return null;
         }
 
@@ -243,22 +223,16 @@ public class Subscription extends AppCompatActivity {
                     webView.loadUrl(payment_url);
                 }
 
-
-
                 webView.setWebViewClient(new WebViewClient() {
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-
-
                         if (url.contains("payment_status=APPROVED")) {
-
                             Intent intent = new Intent();
                             intent.putExtra("payment_status", "Payment Success");
                             setResult(RESULT_OK, intent);
                             finish();
                             //Toast.makeText(OminiPayAndroid.this, "Payment Success!", Toast.LENGTH_SHORT).show();
-
                             return true;
                         }
                         else if (url.contains("payment_status=FAILED"))
@@ -270,7 +244,6 @@ public class Subscription extends AppCompatActivity {
                             //Toast.makeText(OminiPayAndroid.this, "Error!", Toast.LENGTH_SHORT).show();
                             return true;
                         }
-
                         view.loadUrl(url);
                         return true;
                     }
@@ -284,8 +257,6 @@ public class Subscription extends AppCompatActivity {
                         //progressDialog.dismiss();
                     }
                 });
-
-
             }
         }
 
@@ -321,7 +292,8 @@ public class Subscription extends AppCompatActivity {
         return s;
     }
 
-    public String encodeHexString(byte[] byteArray) {
+    public String encodeHexString(byte[] byteArray)
+    {
         StringBuffer hexStringBuffer = new StringBuffer();
         for (int i = 0; i < byteArray.length; i++) {
             hexStringBuffer.append(byteToHex(byteArray[i]));
@@ -329,7 +301,8 @@ public class Subscription extends AppCompatActivity {
         return hexStringBuffer.toString();
     }
 
-    public String byteToHex(byte num) {
+    public String byteToHex(byte num)
+    {
         char[] hexDigits = new char[2];
         hexDigits[0] = Character.forDigit((num >> 4) & 0xF, 16);
         hexDigits[1] = Character.forDigit((num & 0xF), 16);

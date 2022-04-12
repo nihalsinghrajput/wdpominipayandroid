@@ -8,9 +8,12 @@
         android:networkSecurityConfig="@xml/network_config"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CheckoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".CancelSubscription"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Subscription"
             android:exported="true"
