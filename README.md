@@ -68,7 +68,7 @@ if(data !=null && requestcode == 500)
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         
-        if(requestCode == 500) {
+        if((data !=null && requestCode == 500) {
             String strValue = data.getStringExtra("payment_status");
             txtStatus.setText(strValue);
         }
