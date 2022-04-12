@@ -20,7 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class CheckoutActivity extends AppCompatActivity {
 
     WebView webView;
-    RelativeLayout layoutProgress;
+
     private static   String AES_IV = "AGNNMLDKYPKEZDNK";
     ProgressDialog progressDialog;
 
@@ -33,7 +33,6 @@ public class CheckoutActivity extends AppCompatActivity {
         String url = "https://psp.digitalworld.com.sa/checkouts/pay?";
 
         webView = (WebView) findViewById(R.id.webView);
-        layoutProgress = (RelativeLayout) findViewById(R.id.layoutProgress);
 
         String uName = getIntent().getStringExtra("username");
         String  pass = getIntent().getStringExtra("password");
